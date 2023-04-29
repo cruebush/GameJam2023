@@ -8,7 +8,9 @@ public class PlayerScript : MonoBehaviour
 {
     public Rigidbody2D rig;
     private bool thrustState = false;
+    private bool shootState = false;
     private float turnState = 0;
+    private int shootDelay = 70;
 
     public BulletScript bulletPrefab;
 
@@ -23,15 +25,17 @@ public class PlayerScript : MonoBehaviour
         rig.transform.Rotate(new Vector3(0, 0, dir));
     }
 
-    void shoot() { 
-        BulletScript bul = Instantiate(bulletPrefab);
-        bul.launch(rig.transform.position, Mathf.Deg2Rad * rig.transform.rotation.eulerAngles.z, 3);
+    void shoot() {
+        if (shootDelay <= 0) {
+            shootDelay = 70;
+            BulletScript bul = Instantiate(bulletPrefab);
+            bul.launch(rig.transform.position, Mathf.Deg2Rad * rig.transform.rotation.eulerAngles.z, 12);
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        shootDelay--;
     }
 
     public void onMoveInput(InputAction.CallbackContext context)
@@ -56,17 +60,30 @@ public class PlayerScript : MonoBehaviour
 
     public void onShootInput(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        if (context.phase == InputActionPhase.Started)
         {
-            shoot();
+            shootState = true;
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            shootState = false;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (thrustState == true) thrust(0.1f);
-        if (turnState != 0) turn(turnState * 0.7f);
-        rig.velocity *= 0.993f;
+        if (collision.gameObject.CompareTag("Death")) {
+            rig.transform.position = Vector2.zero;
+        }
+        rig.transform.position = Vector2.zero;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (thrustState == true) thrust(0.3f);
+        if (shootState == true) shoot();
+        if (turnState != 0) turn(turnState * Mathf.Abs(1/turnState) * 4);
+        rig.velocity *= 0.98f;
     }
 }
