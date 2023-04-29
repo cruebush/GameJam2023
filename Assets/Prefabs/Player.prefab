@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 2759645123052438346}
-  bulletPrefab: {fileID: 8419483420894845035, guid: c185e17d70ae5fa4c87421b8c6d79323, type: 3}
+  bulletPrefab: {fileID: 8820486817441155513, guid: b6bdcf3749f25c545af5951ed1804517, type: 3}
 --- !u!50 &2759645123052438346
 Rigidbody2D:
   serializedVersion: 4

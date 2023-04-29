@@ -20,6 +20,11 @@ public class TurretScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        allTargets = new List<Transform>();
+        foreach (PlayerScript player in PlayerManagerScript.playerManager.playerList)
+        {
+            allTargets.Add(player.transform);
+        }
         pickTarget();
         turn();
     }

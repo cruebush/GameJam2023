@@ -1,44 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3921264254304426490
+--- !u!1001 &8973727060135491076
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4171997200889384659, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
-      propertyPath: rig
-      value: 
-      objectReference: {fileID: 1801768335}
-    - target: {fileID: 4171997200889384659, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
-      propertyPath: fireMin
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4171997200889384659, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
-      propertyPath: fireRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4171997200889384659, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
-      propertyPath: turnSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4171997200889384659, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
-      propertyPath: bulletSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4171997200889384659, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
-      propertyPath: thrustPower
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4171997200889384659, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 8419483420894845035, guid: c185e17d70ae5fa4c87421b8c6d79323, type: 3}
-    - target: {fileID: 4171997200889384659, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
-      propertyPath: allTargets.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7264549661801891066, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -99,25 +67,34 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7264549661801891069, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264549661801891069, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 343800709
+      objectReference: {fileID: 0}
     - target: {fileID: 7264549661801891071, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
       propertyPath: m_Name
-      value: EnemyShip
+      value: EnemyShip Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1073799775, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
---- !u!1 &5961636149190614277 stripped
+--- !u!1 &1754653822976619259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7264549661801891071, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
-  m_PrefabInstance: {fileID: 3921264254304426490}
+  m_PrefabInstance: {fileID: 8973727060135491076}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &1801768335
+--- !u!50 &516564103185264358
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961636149190614277}
+  m_GameObject: {fileID: 1754653822976619259}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -131,3 +108,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6118480684135471403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754653822976619259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efffb1c151dd5e349ac7200c85050ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rig: {fileID: 0}
+  allTargets: []
+  target: {fileID: 0}
+  turnSpeed: 15
+  bulletSpeed: 10
+  bulletPrefab: {fileID: 8419483420894845035, guid: c185e17d70ae5fa4c87421b8c6d79323, type: 3}
+  canFire: 0
+  fireRate: 0.03
+  targetRig: {fileID: 0}
+  thrustPower: 0.03
+  fireMin: 30
+  fireMax: 0
+  isDead: 0
+  deadTimer: 0
+  deadTimerTotal: 10
+  spawnPoint: {fileID: 0}
