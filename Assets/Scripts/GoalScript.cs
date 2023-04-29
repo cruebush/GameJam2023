@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GoalScript : MonoBehaviour
 {
-    bool finishedWinAnim;
-    bool hasCursors;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,21 +16,7 @@ public class GoalScript : MonoBehaviour
 
     public IEnumerator winState()
     {
+        yield return new WaitForSeconds(1);
         GameManager.instance.selecting = true;
-        finishedWinAnim = true;
-        hasCursors = true;
-        while (!finishedWinAnim)
-        {
-            yield return new WaitForSeconds(1);
-        }
-
-
-
-        PlayerCursorManager.instance.onCursorStart();
-        while (hasCursors)
-        {
-            yield return new WaitForSeconds(1);
-        }
-        GameManager.instance.selecting = false;
     }
 }
