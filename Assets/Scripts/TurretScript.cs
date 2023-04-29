@@ -27,12 +27,11 @@ public class TurretScript : MonoBehaviour
     {
         // Rotate the turret
         Vector3 direction = (target.position - transform.position);
-        /*Quaternion rotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, Time.deltaTime * turnSpeed);*/
+        /*Quaternion toRotation = Quaternion.FromToRotation(transform.position, direction); // instead of LookRotation( )
+        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, Time.deltaTime * turnSpeed);*/
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation.SetEulerAngles(new Vector3(0, 0, angle));
-/*        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);*/
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
     }
 }
