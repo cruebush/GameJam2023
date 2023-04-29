@@ -34,7 +34,8 @@ public class PlayerCursorManager : MonoBehaviour
     public void onCursorStart()
     {
         inputSystem.enabled = true;
-        inputSystem.EnableJoining();
+        PlayerManagerScript.playerManager.playerInputManager.enabled = false;
+        PlayerManagerScript.playerManager.enabled = false;
     }
 
     // Update is called once per frame
