@@ -16,26 +16,40 @@ public class PlayerScript : MonoBehaviour
 
     void thrust(float power)
     {
-        float theta = Mathf.Deg2Rad * rig.transform.rotation.eulerAngles.z;
-        rig.velocity += power * new Vector2(Mathf.Cos(theta), Mathf.Sin(theta));
+        if (!GameManager.instance.selecting)
+        {
+            float theta = Mathf.Deg2Rad * rig.transform.rotation.eulerAngles.z;
+            rig.velocity += power * new Vector2(Mathf.Cos(theta), Mathf.Sin(theta));
+        }
     }
 
     void turn(float dir)
     {
-        rig.transform.Rotate(new Vector3(0, 0, dir));
+        if (!GameManager.instance.selecting)
+        {
+            rig.transform.Rotate(new Vector3(0, 0, dir));
+        }
     }
 
     void shoot() {
-        if (shootDelay <= 0) {
-            shootDelay = 70;
-            BulletScript bul = Instantiate(bulletPrefab);
-            bul.launch(rig.transform.position, Mathf.Deg2Rad * rig.transform.rotation.eulerAngles.z, 12);
+        if (!GameManager.instance.selecting)
+        {
+            if (shootDelay <= 0)
+            {
+                shootDelay = 70;
+                BulletScript bul = Instantiate(bulletPrefab);
+                bul.launch(rig.transform.position, Mathf.Deg2Rad * rig.transform.rotation.eulerAngles.z, 12);
+            }
         }
     }
 
     private void Update()
     {
         shootDelay--;
+        if (GameManager.instance.selecting)
+        {
+            transform.position = new Vector3(0, 0, 0);
+        }
     }
 
     public void onMoveInput(InputAction.CallbackContext context)

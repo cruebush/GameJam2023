@@ -24,12 +24,15 @@ public class EnemyShipScript : MonoBehaviour
     public float deadTimer;
     public float deadTimerTotal;
     public Transform spawnPoint;
+    public bool routineStarted;
+
 
     // Start is called before the first frame update
 
     private void Start()
     {
         isDead = false;
+        routineStarted = false;
     }
     void thrust(float power)
     {
@@ -72,15 +75,26 @@ public class EnemyShipScript : MonoBehaviour
             deadTimer = 0;
             isDead = false;
             canFire = true;
-            StartCoroutine (fire());
         }
 
-        if (!isDead)
+        if (!isDead && !GameManager.instance.selecting)
         {
             pickTarget();
             turn();
             thrust(thrustPower);
             canFire = true;
+            if  (!routineStarted)
+            {
+                routineStarted = true;
+                StartCoroutine(fire());
+            }
+        }
+
+        if (GameManager.instance.selecting)
+        {
+            canFire = false;
+            transform.position = spawnPoint.position;
+            routineStarted = false;
         }
     }
 
