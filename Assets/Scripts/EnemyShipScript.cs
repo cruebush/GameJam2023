@@ -20,9 +20,17 @@ public class EnemyShipScript : MonoBehaviour
     public float thrustPower;
     public float fireMin;
     public float fireMax;
+    public bool isDead;
+    public float deadTimer;
+    public float deadTimerTotal;
+    public Transform spawnPoint;
 
     // Start is called before the first frame update
 
+    private void Start()
+    {
+        isDead = false;
+    }
     void thrust(float power)
     {
         Vector3 direction = (target.position - transform.position);
@@ -47,9 +55,41 @@ public class EnemyShipScript : MonoBehaviour
 
     void Update()
     {
-        pickTarget();
-        turn();
-        thrust(thrustPower);
+        allTargets = new List<Transform>();
+        foreach (PlayerScript player in PlayerManagerScript.playerManager.playerList)
+        {
+            allTargets.Add(player.transform);
+        }
+        if (isDead)
+        {
+            transform.position = spawnPoint.position;
+            deadTimer += Time.deltaTime;
+            canFire = false;
+        }
+
+        if (deadTimer > deadTimerTotal)
+        {
+            deadTimer = 0;
+            isDead = false;
+            canFire = true;
+            StartCoroutine (fire());
+        }
+
+        if (!isDead)
+        {
+            pickTarget();
+            turn();
+            thrust(thrustPower);
+            canFire = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerBullet"))
+        {
+            isDead = true;
+        }
     }
 
     private void turn()

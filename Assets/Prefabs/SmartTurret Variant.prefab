@@ -51,13 +51,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7264549661801891069, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264549661801891069, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 779533309
+      objectReference: {fileID: 0}
     - target: {fileID: 7264549661801891071, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
       propertyPath: m_Name
-      value: SmartTurret
+      value: SmartTurret Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7264549661801891068, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
     - {fileID: 4171997200889384659, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
+    - {fileID: 1073799775, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
 --- !u!1 &8931593989297513433 stripped
 GameObject:

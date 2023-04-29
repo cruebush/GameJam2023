@@ -49,11 +49,12 @@ public class PlayerScript : MonoBehaviour
     }
     public void onTurnInput(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
+        /*if (context.phase == InputActionPhase.Started)
         {
             turnState = context.ReadValue<float>();
-        }
-        else if(context.phase == InputActionPhase.Canceled) {
+        }*/
+        turnState = context.ReadValue<float>();
+        if (context.phase == InputActionPhase.Canceled) {
             turnState = 0;
         }
     }
@@ -75,7 +76,6 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Death")) {
             rig.transform.position = Vector2.zero;
         }
-        rig.transform.position = Vector2.zero;
     }
 
     // Update is called once per frame
