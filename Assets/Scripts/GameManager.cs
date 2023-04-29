@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     TextMeshProUGUI text;
     public static GameManager instance;
     public bool selecting;
+    public AudioClip[] audioClips;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +38,15 @@ public class GameManager : MonoBehaviour
         {
             text = GameObject.FindGameObjectWithTag("HelpText").GetComponent<TextMeshProUGUI>();
             text.text = "";
+		audioSource.clip = audioClips[0];
         }
+	  else if(scene.name == "CreditScreen"){
+		audioSource.clip = audioClips[0];
+}
+	  else
+	  {
+		audioSource.clip = audioClips[1];
+	  }
     }
 
     public void quit()
