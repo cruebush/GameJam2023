@@ -8,7 +8,9 @@ public class PlayerScript : MonoBehaviour
 {
     public Rigidbody2D rig;
     private bool thrustState = false;
-    private int turnState = 0;
+    private float turnState = 0;
+
+    public BulletScript bulletPrefab;
 
     void thrust(float power)
     {
@@ -19,6 +21,11 @@ public class PlayerScript : MonoBehaviour
     void turn(float dir)
     {
         rig.transform.Rotate(new Vector3(0, 0, dir));
+    }
+
+    void shoot() { 
+        BulletScript bul = Instantiate(bulletPrefab);
+        bul.launch(rig.transform.position, Mathf.Deg2Rad * rig.transform.rotation.eulerAngles.z, 3);
     }
 
     // Start is called before the first frame update
@@ -40,10 +47,18 @@ public class PlayerScript : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            turnState = context.ReadValue<int>();
+            turnState = context.ReadValue<float>();
         }
         else if(context.phase == InputActionPhase.Canceled) {
             turnState = 0;
+        }
+    }
+
+    public void onShootInput(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            shoot();
         }
     }
 
@@ -51,6 +66,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         if (thrustState == true) thrust(0.1f);
-        if (turnState == 0) turn(turnState);
+        if (turnState != 0) turn(turnState * 0.7f);
+        rig.velocity *= 0.993f;
     }
 }
