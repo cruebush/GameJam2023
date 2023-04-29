@@ -7,26 +7,32 @@ public class GoalScript : MonoBehaviour
     bool finishedWinAnim;
     bool hasCursors;
     
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.collider.tag == "Player")
+        if(collision.CompareTag("Player"))
         {
+            Debug.Log("Entering State");
             StartCoroutine(winState());
         }
     }
 
     public IEnumerator winState()
     {
+        GameManager.instance.selecting = true;
         finishedWinAnim = true;
         hasCursors = true;
         while (!finishedWinAnim)
         {
             yield return new WaitForSeconds(1);
         }
+
+
+
         PlayerCursorManager.instance.onCursorStart();
         while (hasCursors)
         {
             yield return new WaitForSeconds(1);
         }
+        GameManager.instance.selecting = false;
     }
 }
