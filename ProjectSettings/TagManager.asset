@@ -8,6 +8,7 @@ TagManager:
   - Object
   - PlayerBullet
   - HelpText
+  - Goal
   layers:
   - Default
   - TransparentFX
