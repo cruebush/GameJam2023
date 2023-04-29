@@ -48,26 +48,10 @@ public class ObjectScript : MonoBehaviour
         }
     }
 
-    void turret()
-    {
-        PlayerScript target;
-        PlayerScript[] players;
-        players = FindObjectsByType<PlayerScript>(FindObjectsSortMode.None);
-        float minDistance = 10000;
-        foreach (PlayerScript i in players) {
-            float dist = Vector3.Distance(transform.position, i.transform.position);
-            if (dist < minDistance) {
-                minDistance = dist;
-                target = i;
-            }
-        }
-
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-
+      
     }
 
     // Update is called once per frame
