@@ -42,10 +42,12 @@ public class GameManager : MonoBehaviour
         }
 	  else if(scene.name == "CreditScreen"){
 		audioSource.clip = audioClips[0];
-}
-	  else
+            audioSource.Play();
+        }
+        else
 	  {
 		audioSource.clip = audioClips[1];
+            audioSource.Play();
 	  }
     }
 

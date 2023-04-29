@@ -17,7 +17,7 @@ public class UIMeteor : MonoBehaviour
     {
         if(PlayerManagerScript.playerManager.playerList.Count > 1)
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Level2");
         }
         else
         {
