@@ -9,22 +9,14 @@ public class UIPlayer : MonoBehaviour
     public int upperx;
     public int lowery;
     public int uppery;
-    List<Transform> transforms = new List<Transform>();
-
-    public void addPlayer(PlayerInput player)
-    {
-        transforms.Add(player.transform);
-    }
-
-    public void removePlayer(PlayerInput player)
-    {
-        transforms.Remove(player.transform);
-    }
+    List<PlayerScript> transforms = new List<PlayerScript>();
 
     private void Update()
     {
-        foreach(Transform t in transforms)
+        transforms = PlayerManagerScript.playerManager.playerList;
+        foreach(PlayerScript p in transforms)
         {
+            Transform t = p.transform;
             if (t.position.x < lowerx)
             {
                 t.position = new Vector2(upperx, t.position.y);
