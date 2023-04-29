@@ -51,9 +51,31 @@ public class CursorScript : MonoBehaviour
                     selected = null;
                 }
             } else if (selected != null) {
-                selected.mass = 1;
-                selected = null;
-                offSet = Vector3.zero;
+                Collider2D col = selected.GetComponent<Collider2D>();
+                List<Collider2D> collisions = new List<Collider2D>();
+                col.OverlapCollider(new ContactFilter2D().NoFilter(), collisions);
+                bool placeable = true;
+                foreach (Collider2D i in collisions) {
+                    if (i.gameObject.CompareTag("Object"))
+                    {
+                        if (selected.GetComponent<ObjectScript>().type == "bomb")
+                        {
+                            Destroy(selected.gameObject);
+                            Destroy(i.gameObject);
+                        }
+                        else {
+                            placeable = false;
+                        }
+                        break;
+                    }
+
+                }
+                if (placeable)
+                {
+                    selected.mass = 1;
+                    selected = null;
+                    offSet = Vector3.zero;
+                }
             }
         }
     }
