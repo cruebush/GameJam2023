@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject cursor;
     public bool teled;
     public BulletScript bulletPrefab;
+    public Color pColor;
 
     void thrust(float power)
     {
@@ -58,6 +59,11 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        pColor = GetComponentInChildren<SpriteRenderer>().color;
+    }
+
     public void onMoveInput(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
@@ -99,6 +105,10 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Object") && GameManager.instance.selecting)
         {
             colliding = collision;
+        }
+        if (collision.gameObject.CompareTag("Goal"))
+        {
+            GetComponentInChildren<PointCanvasScript>().addpoint();
         }
     }
 

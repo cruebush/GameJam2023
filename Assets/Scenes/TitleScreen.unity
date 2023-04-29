@@ -1170,8 +1170,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selecting: 0
-  audioClips: []
-  audioSource: {fileID: 0}
+
+  audioClips:
+  - {fileID: 8300000, guid: 2caa7a973b8f6484cacaef0a66ea8025, type: 3}
+  - {fileID: 8300000, guid: b4ab66de566f66043a58ac42eef41516, type: 3}
+  audioSource: {fileID: 1316476447}
 --- !u!4 &1316476445
 Transform:
   m_ObjectHideFlags: 0
@@ -1240,6 +1243,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1ce94732-de40-413b-8d99-1c491198d6b4
     m_ActionName: main/Escape[/XInputControllerWindows/select,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4c0458e8-3cd0-4d58-b29e-a96067db34cf
+    m_ActionName: main/select[/Keyboard/space,/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ca645806-6018-476a-bf06-4fde1c1e4971
+    m_ActionName: main/horizontal[/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows1/leftStick/right,/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b8590ee0-748a-4293-ba03-c6221671d853
+    m_ActionName: main/vertical[/XInputControllerWindows/leftStick/down,/XInputControllerWindows1/leftStick/down,/XInputControllerWindows/leftStick/up,/XInputControllerWindows1/leftStick/up,/Keyboard/s,/Keyboard/w,/Keyboard/downArrow,/Keyboard/upArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: main
@@ -1255,7 +1270,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2caa7a973b8f6484cacaef0a66ea8025, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
