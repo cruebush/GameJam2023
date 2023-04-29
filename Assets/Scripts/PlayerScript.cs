@@ -204,11 +204,12 @@ public class PlayerScript : MonoBehaviour
     {
         if (GameManager.instance.selecting)
         {
+            rig.velocity = Vector3.zero;
             Vector3 move = Vector3.zero;
             if (horizontalState != 0) move.x += horizontalState * Mathf.Abs(1 / horizontalState);
             if (verticalState != 0) move.y += verticalState * Mathf.Abs(1 / verticalState);
             move = move.normalized;
-            transform.position += move * 0.2f;
+            transform.position += move * 0.1f;
             if (selected != null)
             {
                 selected.transform.position = transform.position + offSet;
