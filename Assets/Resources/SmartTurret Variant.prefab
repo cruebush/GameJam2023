@@ -63,10 +63,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmartTurret Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 7264549661801891071, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
-      propertyPath: m_TagString
-      value: Object
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7264549661801891068, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
     - {fileID: 4171997200889384659, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
@@ -77,27 +73,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7264549661801891071, guid: db7bc9aa679f31b4bb9d65a7ae41c050, type: 3}
   m_PrefabInstance: {fileID: 2243839370957514534}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &7277085322987072969
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8931593989297513433}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &1338962323674211552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,4 +96,3 @@ MonoBehaviour:
   fireRate: 100
   targetRig: {fileID: 0}
   distance: 0
-  routineStarted: 0
