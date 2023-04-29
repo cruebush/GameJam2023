@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Death
   - Object
+  - HelpText
   layers:
   - Default
   - TransparentFX
