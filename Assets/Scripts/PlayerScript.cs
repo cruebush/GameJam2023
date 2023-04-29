@@ -52,9 +52,14 @@ public class PlayerScript : MonoBehaviour
             if (!teled)
             {
                 transform.position = new Vector3(0, 0, 0);
+                rig.velocity = Vector3.zero;
                 teled = true;
             }
-            
+
+        }
+        else
+        {
+            teled = false;
         }
     }
 

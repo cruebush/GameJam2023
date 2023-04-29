@@ -631,6 +631,7 @@ MonoBehaviour:
   camIndex: 1
   target: {fileID: 0}
   cameraTransform: {fileID: 108975450}
+  cam: {fileID: 0}
 --- !u!1 &173276728
 GameObject:
   m_ObjectHideFlags: 0
@@ -4539,6 +4540,7 @@ MonoBehaviour:
   camIndex: 3
   target: {fileID: 0}
   cameraTransform: {fileID: 1015682967}
+  cam: {fileID: 0}
 --- !u!1 &1017067131
 GameObject:
   m_ObjectHideFlags: 0
@@ -7840,6 +7842,7 @@ MonoBehaviour:
   camIndex: 0
   target: {fileID: 0}
   cameraTransform: {fileID: 1623674286}
+  cam: {fileID: 0}
 --- !u!1 &1665231636
 GameObject:
   m_ObjectHideFlags: 0
@@ -9165,6 +9168,7 @@ MonoBehaviour:
   camIndex: 2
   target: {fileID: 0}
   cameraTransform: {fileID: 2099096834}
+  cam: {fileID: 0}
 --- !u!1 &2120606516
 GameObject:
   m_ObjectHideFlags: 0

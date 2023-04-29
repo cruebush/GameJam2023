@@ -8,11 +8,12 @@ public class CameraFollowScript : MonoBehaviour
     public int camIndex;
     public Transform target;
     public Transform cameraTransform;
+    public Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        cam = GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -30,6 +31,15 @@ public class CameraFollowScript : MonoBehaviour
             transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, -10), new Vector3(target.position.x, target.position.y, -10), Time.deltaTime * 5);
             //cameraTransform.position = target.position;
             print("test");
+        }
+
+        if (GameManager.instance.selecting)
+        {
+            cam.orthographicSize = 15;
+        }
+        else
+        {
+            cam.orthographicSize = 5;
         }
     }
 }
