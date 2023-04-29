@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7264549661801891066}
   - component: {fileID: 7264549661801891069}
-  - component: {fileID: 7264549661801891068}
+  - component: {fileID: 4171997200889384659}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7264549661801891068
+--- !u!114 &4171997200889384659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,19 +94,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264549661801891071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1c27f3de1072c479b644876d7aba92, type: 3}
+  m_Script: {fileID: 11500000, guid: efffb1c151dd5e349ac7200c85050ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allTargets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  rig: {fileID: 0}
+  allTargets: []
   target: {fileID: 0}
-  turnMin: -0.5
-  turnMax: 0.5
-  turnSpeed: 5
-  bulletSpeed: 5
-  bulletPrefab: {fileID: 8419483420894845035, guid: c185e17d70ae5fa4c87421b8c6d79323, type: 3}
-  fireRate: 0.5
+  turnSpeed: 0
+  bulletSpeed: 0
+  bulletPrefab: {fileID: 0}
+  canFire: 0
+  fireRate: 0
+  targetRig: {fileID: 0}
+  thrustPower: 0
+  fireMin: 0
+  fireMax: 0
