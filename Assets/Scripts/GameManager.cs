@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    TextMeshProUGUI text;
     public static GameManager instance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +17,22 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            text = GameObject.FindGameObjectWithTag("HelpText").GetComponent<TextMeshProUGUI>();
+            text.text = "";
         }
         else
         {
             Destroy(gameObject);
+        }
+        SceneManager.sceneLoaded += onSceneLoaded;
+    }
+
+    public void onSceneLoaded(Scene scene, LoadSceneMode lsm)
+    {
+        if(scene.name == "TitleScreen")
+        {
+            text = GameObject.FindGameObjectWithTag("HelpText").GetComponent<TextMeshProUGUI>();
+            text.text = "";
         }
     }
 
@@ -39,5 +54,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public IEnumerator showText()
+    {
+        text.text = "You need at least two players to play!";
+        yield return new WaitForSeconds(5);
+        text.text = "";
     }
 }

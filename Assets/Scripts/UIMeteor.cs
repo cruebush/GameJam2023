@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class UIMeteor : MonoBehaviour
 {
@@ -10,6 +11,28 @@ public class UIMeteor : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void loadMainScene()
+    {
+        if(PlayerManagerScript.playerManager.playerList.Count > 1)
+        {
+            SceneManager.LoadScene("Level1");
+        }
+        else
+        {
+            StartCoroutine(GameManager.instance.showText());
+        }
+    }
+
+    public void whenthatonescenechanges()
+    {
+        SceneManager.LoadScene("TitleScreen");
+    }
+
+    public void quit()
+    {
+        Application.Quit();
     }
 
     // Update is called once per frame
