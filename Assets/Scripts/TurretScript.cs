@@ -13,20 +13,40 @@ public class TurretScript : MonoBehaviour
     public BulletScript bulletPrefab;
     public bool canFire;
     public float fireRate;
+    public bool routineStarted;
 
     // Start is called before the first frame update
 
+    private void Start()
+    {
+        routineStarted = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        allTargets = new List<Transform>();
-        foreach (PlayerScript player in PlayerManagerScript.playerManager.playerList)
+        if (!GameManager.instance.selecting)
         {
-            allTargets.Add(player.transform);
+            allTargets = new List<Transform>();
+            foreach (PlayerScript player in PlayerManagerScript.playerManager.playerList)
+            {
+                allTargets.Add(player.transform);
+            }
+            pickTarget();
+            turn();
+            canFire = true;
+            if (!routineStarted)
+            {
+                routineStarted=true;
+                StartCoroutine(fire());
+            }
         }
-        pickTarget();
-        turn();
+        else
+        {
+            canFire = false;
+        }
+
+
     }
 
     private void pickTarget()

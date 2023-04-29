@@ -9,10 +9,13 @@ public class GameManager : MonoBehaviour
 {
     TextMeshProUGUI text;
     public static GameManager instance;
+    public bool selecting;
 
     // Start is called before the first frame update
     void Start()
     {
+        selecting = false;
+
         if(instance == null)
         {
             instance = this;

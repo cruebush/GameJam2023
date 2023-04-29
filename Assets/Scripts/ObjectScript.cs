@@ -73,18 +73,21 @@ public class ObjectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        shootDelay--;
-        switch (type)
+        if (!GameManager.instance.selecting)
         {
-            case "octo":
-                octo();
-                break;
-            case "spinner":
-                spinner();
-                break;
-            case "pulser":
-                pulser();
-                break;
+            shootDelay--;
+            switch (type)
+            {
+                case "octo":
+                    octo();
+                    break;
+                case "spinner":
+                    spinner();
+                    break;
+                case "pulser":
+                    pulser();
+                    break;
+            }
         }
     }
 }
