@@ -33,6 +33,7 @@ public class PointCanvasScript : MonoBehaviour
                 }
                 
             }
+            Debug.Log(mCamera);
             GetComponent<Canvas>().worldCamera = mCamera;
         }
     }

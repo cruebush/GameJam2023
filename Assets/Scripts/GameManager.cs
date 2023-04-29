@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void onEscapeKeyPressed(InputAction.CallbackContext context)
     {
-        Debug.Log("Escape Key pressed");
+        SceneManager.LoadScene("TitleScreen");
     }
 
     // Update is called once per frame
