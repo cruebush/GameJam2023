@@ -1399,6 +1399,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1540286165}
+        m_TargetAssemblyTypeName: UIPlayer, Assembly-CSharp
+        m_MethodName: addPlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_PlayerLeftEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1439,10 +1451,10 @@ MonoBehaviour:
   playerList: []
   playerInputManager: {fileID: 1642395213}
   playerColors:
-  - {r: 0, g: 0.02643156, b: 1, a: 0}
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 1, g: 0.95084643, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0.8484359, a: 0}
+  - {r: 0.514151, g: 0.527488, b: 1, a: 1}
+  - {r: 1, g: 0.3915094, b: 0.3915094, a: 1}
+  - {r: 1, g: 0.97523123, b: 0.514151, a: 1}
+  - {r: 1, g: 0.5235849, b: 0.9271365, a: 1}
 --- !u!1 &1663121510
 GameObject:
   m_ObjectHideFlags: 0
